@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} dark:bg-slate-800`}>
         <Navbar />
-        {children}
+        <main className="mx-auto max-w-xl p-4 bg-stone-200 min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   );

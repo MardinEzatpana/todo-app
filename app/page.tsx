@@ -1,6 +1,10 @@
+import Main from "./ui/main/Main";
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <>
+    <h1 className="font-bold text-2xl">Today Todos</h1>
+    <Main />
+    </>
   )
 }

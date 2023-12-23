@@ -2,37 +2,26 @@ import { render, screen } from '@testing-library/react'
 import Main from '../Main'
 
 describe('Main', () => {
+    it('should render a list with the correct number of items', () => {
+        render(
+            <Main />
+        ) // ARRANGE
 
-    it('should render an article', () => {
-        render(<Main />) 
+        //ACT
+        const todosArray = screen.getAllByRole('article')
 
-        const article = screen.getByRole('article')
-
-        expect(article).toBeInTheDocument()
+        expect(todosArray.length).toBe(4)// ASSERT
     })
 
-    it('should render a label', () => {
-        render(<Main />) 
+    it('should render the todos in the correct order', () => {
+        render(
+            <Main />
+        ) // ARRANGE
 
-        const label = screen.getByTestId('todo-item')
+        //ACT
+        const firstItem = screen.getAllByTestId("todo-item")[0]
 
-        expect(label).toBeInTheDocument()
-    })
-
-    it('should render a checkbox', () => {
-        render(<Main />) 
-     
-        const checkbox = screen.getByRole('checkbox')
-
-        expect(checkbox).toBeInTheDocument()
-    })
-
-    it('should render a button', () => {
-        render(<Main />) 
-       
-        const button = screen.getByRole('button')
-
-        expect(button).toBeInTheDocument()
+        expect(firstItem).toHaveTextContent("Write Code 💻")// ASSERT
     })
 
 })
